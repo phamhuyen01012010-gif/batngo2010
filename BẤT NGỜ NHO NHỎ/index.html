@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>❤️ Tặng Em 20/10 ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+overflow:auto;
+height:100vh;
+
+background:
+linear-gradient(
+135deg,
+#0f172a,
+#1e293b,
+#312e81,
+#581c87
+);
+
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+}
+
+/* SAO */
+
+.star{
+position:fixed;
+background:white;
+border-radius:50%;
+opacity:.8;
+animation:blink 2s infinite;
+}
+
+@keyframes blink{
+50%{
+opacity:.2;
+}
+}
+
+/* TIM */
+
+.heart{
+position:fixed;
+color:#ff4d6d;
+font-size:18px;
+pointer-events:none;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+from{
+transform:translateY(-30px);
+}
+
+to{
+transform:translateY(110vh);
+}
+}
+
+/* KHUNG CHÍNH */
+
+.container{
+
+width:90%;
+max-width:850px;
+margin:30px auto;
+background:rgba(255,255,255,.12);
+
+backdrop-filter:blur(14px);
+
+border:1px solid rgba(255,255,255,.2);
+
+border-radius:30px;
+
+padding:25px;
+
+text-align:center;
+
+box-shadow:
+0 0 40px rgba(255,255,255,.15);
+
+z-index:100;
+}
+
+/* TITLE */
+
+h1{
+
+font-size:50px;
+
+margin-bottom:20px;
+
+color:white;
+
+text-shadow:
+0 0 10px #ff69b4,
+0 0 20px #ff69b4,
+0 0 40px #ff69b4;
+
+}
+
+/* KHUNG ẢNH */
+
+.slider{
+
+width:300px;
+height:350px;
+max-width:90%;
+margin:auto;
+
+overflow:hidden;
+
+border-radius:25px;
+
+border:4px solid white;
+
+box-shadow:
+0 0 20px white,
+0 0 50px hotpink;
+
+}
+
+.slider img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+transition:1s;
+
+}
+
+/* NGÀY YÊU */
+
+#counter{
+margin-top:20px;
+
+font-size:25px;
+
+font-weight:bold;
+
+color:#ffd6e7;
+
+text-shadow:2px 2px 10px black;
+}
+
+/* THƯ */
+
+#typed{
+
+margin-top:20px;
+max-wdith:700px;
+font-size:20px;
+margin:20px auto;
+line-height:1.8;
+
+color:white;
+
+text-shadow:
+2px 2px 5px black;
+
+min-height:110px;
+}
+
+/* NÚT */
+
+button{
+
+margin-top:20px;
+
+padding:14px 25px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+background:white;
+
+color:#ff4081;
+
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+#gift{
+
+margin-top:20px;
+
+font-size:30px;
+
+display:none;
+
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.1);
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="music" autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+
+<div class="container">
+
+<h1>❤️ Chúc Chòn iu 20/10 ❤️</h1>
+
+<div class="slider">
+<img id="slide" src="img1.jpg">
+</div>
+
+<div id="counter"></div>
+
+<div id="typed"></div>
+
+<button onclick="openGift()">
+🎁 Mở Quà Bí Mật
+</button>
+
+<div id="gift">
+💞 VK THƯƠNG CHÒN IU RẤT RẤT NHÌU LUN 💞
+</div>
+
+</div>
+
+<script>
+
+/* TỰ PHÁT NHẠC */
+
+const music=document.getElementById("music");
+
+window.onload=()=>{
+music.play().catch(()=>{});
+}
+
+document.addEventListener("click",()=>{
+music.play();
+},{once:true});
+
+
+/* SLIDE */
+
+const images=[
+"img1.jpg",
+"img2.jpg",
+"img3.jpg",
+"img4.jpg",
+"img5.jpg"
+];
+
+let current=0;
+
+setInterval(()=>{
+
+current=(current+1)%images.length;const img=document.getElementById("slide");
+
+img.style.opacity=0;
+
+setTimeout(()=>{
+
+img.src=images[current];
+img.style.opacity=1;
+
+},500);
+
+},4000);
+
+
+/* ĐẾM NGÀY YÊU */
+
+const startDate=new Date("2025-01-01");
+
+function updateCounter(){
+
+const now=new Date();
+
+const days=Math.floor(
+(now-startDate)/(1000*60*60*24)
+);
+
+document.getElementById("counter").innerHTML=
+"💖 Chúng ta đã bên nhau " + 569 + " ngày 💖";
+
+}
+
+updateCounter();
+
+
+/* THƯ TÌNH */
+
+const message=
+"Cảm ơn chòn vì đã xuất hiện và làm những ngày bình thường của vk trở nên đặc biệt hơn. Vk mong chòn luôn giữ nụ cười trên môi, gặp thật nhiều điều tốt đẹp và nhớ rằng chòn xứng đáng với những yêu thương chân thành nhất. Vk không hứa mọi ngày đều hoàn hảo, nhưng Vk sẽ cố gắng lắng nghe, quan tâm và cùng chòn tạo nên thật nhiều kỷ niệm đẹp. Chúc chòn iu của vk có một ngày 20/10 thật hạnh phúc! 🌹 "
+
+let i=0;
+
+function typing(){
+
+if(i<message.length){
+
+document.getElementById("typed").innerHTML+=message.charAt(i);
+
+i++;
+
+setTimeout(typing,50);
+
+}
+
+}
+
+typing();
+
+
+/* QUÀ */
+
+function openGift(){
+
+document.getElementById("gift").style.display="block";
+
+for(let i=0;i<40;i++){
+
+setTimeout(createHeart,i*80);
+
+}
+
+}
+
+
+/* TIM RƠI */
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(Math.random()*20+18)+"px";
+
+heart.style.animationDuration=
+(Math.random()*4+4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},8000);
+
+}
+
+setInterval(createHeart,800);
+
+
+/* SAO TRỜI */
+
+for(let i=0;i<120;i++){
+
+const star=document.createElement("div");
+
+star.className="star";
+
+let size=Math.random()*3;
+
+star.style.width=size+"px";
+star.style.height=size+"px";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+
+document.body.appendChild(star);
+
+}
+
+</script>
+
+</body>
+</html>
